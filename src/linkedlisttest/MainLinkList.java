@@ -4,41 +4,45 @@
  */
 package linkedlisttest;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 /**
  *
  * @author erkoc
  */
 public class MainLinkList {
+
     public static void main(String[] args) {
-        LinkList theList = new LinkList();
+        LinkedList liste = new LinkedList();
+        String line = "";
+        Scanner keyboard = new Scanner(System.in);
+        do {            
+            line = keyboard.nextLine();
+            liste.add(line);
+        } while (!line.equals("exit"));
         
-        theList.insertFirst("Bu birinci satirdir.");
-        theList.insertFirst("Bu ikinci satirdir.");
-        theList.insertFirst("Bu ucuncu satirdir.");
-        theList.insertFirst("Bu dorduncu satirdir.");
-        
-        theList.displayList();
-        /*
-        while (!theList.isEmpty()) {            
-            Link aLink = theList.deleteFirst();
-            System.out.println("Deleted");
-            aLink.displayLink();
-            System.out.println("");
+        liste.removeLast();
+       
+        try {
+             File file = new File("/home/erkoc/Desktop/proje/liste.txt");
+             FileWriter fwriter = new FileWriter(file,true);
+             BufferedWriter bw = new BufferedWriter(fwriter);
+             for(Object satir : liste){
+             bw.write(satir.toString()+ "\n");
+             }
+             bw.close();
+        } catch (Exception hata) {
+            hata.printStackTrace();
         }
-        */
-        Link f = theList.find("Bu ucuncu satirdir.");
-        if(f != null)
-            System.out.println("Found link with key " + f.data);
-        else 
-            System.out.println("Can't find link");
-        
-        Link d = theList.delete("Bu ikinci satirdir.");
-        
-        if(d != null)
-            System.out.println("Deleted link with key " + d.data);
-        else
-            System.out.println("Can't delete link");
-        
-        theList.displayList();
+        System.out.println("Dosya yazimi basari ile gerceklesmistir");
+       
+        System.out.println("\n Bitti");
     }
 }
