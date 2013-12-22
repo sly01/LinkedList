@@ -196,6 +196,8 @@ public class LinkList {
             newLink.next = null;
             newLink.previous = null;
             first = newLink;
+            current = first;
+            counter = 1;
 
         } else {
             while (temp.next != null) {
