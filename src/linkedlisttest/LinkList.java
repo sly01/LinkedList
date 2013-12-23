@@ -27,15 +27,16 @@ public class LinkList {
     }
 
     public Link find(String key) {
-        Link current = first;
-        while (current.data != key) {
-            if (current.next == null) {
-                return null;
+        Link temp = first;
+        while (temp != null) {
+            if (temp.data.equals(key)) {
+                return temp;
             } else {
-                current = current.next;
+                temp = temp.next;
             }
         }
-        return current;
+
+        return null;
     }
 
     public void goTop() {//command l
@@ -99,9 +100,11 @@ public class LinkList {
     public void goLine(int line) {//command g
         current = first;
         for (counter = 1; counter < line; counter++) {
-            if(current.next!=null){
-            current = current.next;
-            }else break;
+            if (current.next != null) {
+                current = current.next;
+            } else {
+                break;
+            }
         }
     }
 
@@ -133,11 +136,12 @@ public class LinkList {
 
     public void moveForward(int moveForward) {//command m
         for (int i = 0; i < moveForward; i++) {
-            if(current.next!=null){
+            if (current.next != null) {
                 current = current.next;
                 counter++;
-            }else
+            } else {
                 break;
+            }
         }
 
     }
