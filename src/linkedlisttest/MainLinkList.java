@@ -1,6 +1,5 @@
 package linkedlisttest;
 
-import com.sun.xml.internal.ws.api.pipe.NextAction;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -17,7 +16,7 @@ public class MainLinkList {
 
     public static void main(String[] args) {
         LinkList list = new LinkList();
-       
+
         int secim = 0;
         String line = "";
         String komut = "";
@@ -28,116 +27,116 @@ public class MainLinkList {
         while (secim != 3) {
             System.out.print("Enter your choice=");
             secim = choice.nextInt();
-            if(secim != 3){
-            switch (secim) {
-                case 1:
-                    System.out.println("You are in insertion mode");
-                    do {
-                        line = keyboard.nextLine();
-                        if(line.equals("exit")){
-                            break;
-                        }
-                        else
-                        list.addLast(line);
-                    } while (!line.equals("exit"));
-                    break;
-
-                case 2:
-                    System.out.println("You are in command mode");
-                    commandMenu();
-                    System.out.print("Enter your choice=");
-                    komut = command.nextLine();
-                    switch (komut) {
-                        case "l":
-                            System.out.println("Going to the top");
-                            list.goTop();
-                            break;
-                        case "d":
-                            System.out.println("Inserting after curent:");
-                            Scanner subData = new Scanner(System.in);
-                            list.addAfterCurrent(subData.nextLine());
-                            break;
-                        case "a":
-                            System.out.println("Deleting current list");
-                            list.delete();
-                            break;
-                        case "g":
-                            System.out.print("Insert line number to go");
-                            Scanner linNum = new Scanner(System.in);
-                            list.goLine(linNum.nextInt());
-                            break;
-                        case "?":
-                            commandMenu();
-                            break;
-                        case "m":
-                            System.out.print("Please insert forwardline:");
-                            Scanner forwaredLine = new Scanner(System.in);
-                            list.moveForward(forwaredLine.nextInt());
-                            break;
-                        case "i":
-                            System.out.print("Please enter the data:");
-                            Scanner addBeforeCurrentData = new Scanner(System.in);
-                            list.addBeforeCurrent(addBeforeCurrentData.nextLine());
-                            break;
-                        case "p":
-                            list.displayCurrent();
-                            break;
-                        case "P":
-                            list.displayList();
-                            break;
-                        case "s":
-                            Scanner Data = new Scanner(System.in);
-                            System.out.print("Please enter the current data:");
-                            String oldData = Data.nextLine();
-                            System.out.print("Please enter the new data:");
-                            String newData = Data.nextLine();
-                            list.replaceText(oldData, newData);
-                            break;
-                        case "w":
-                            System.out.print("Please enter the fileName:");
-                            Scanner fileName = new Scanner(System.in);
-                            writeInFile(list,fileName.nextLine());
-                            break;
-                        case "r!":
-                            System.exit(0);
-                            break;
-                        case "#":
-                            list.goBottom();
-                            break;
-                        case "+":
-                            list.goUp();
-                            break;
-                        case "-":
-                            list.goDown();
-                            break;
-                        case "?text":
-                            System.out.print("Please enter searching text=");
-                            Scanner text = new Scanner(System.in);
-                            Link f = list.find(text.nextLine());
-                            if(f != null){
-                                JOptionPane.showMessageDialog(null, "You found it");
+            if (secim != 3) {
+                switch (secim) {
+                    case 1:
+                        System.out.println("You are in insertion mode");
+                        do {
+                            line = keyboard.nextLine();
+                            if (line.equals("exit")) {
+                                break;
+                            } else {
+                                list.addLast(line);
                             }
-                            else
-                                JOptionPane.showMessageDialog(null, "You can't find it");
-                            break;
-                    }
+                        } while (!line.equals("exit"));
+                        break;
 
-                    break;
+                    case 2:
+                        System.out.println("You are in command mode");
+                        commandMenu();
+                        System.out.print("Enter your choice=");
+                        komut = command.nextLine();
+                        switch (komut) {
+                            case "l":
+                                System.out.println("Going to the top");
+                                list.goTop();
+                                break;
+                            case "d":
+                                System.out.println("Inserting after curent:");
+                                Scanner subData = new Scanner(System.in);
+                                list.addAfterCurrent(subData.nextLine());
+                                break;
+                            case "a":
+                                System.out.println("Deleting current list");
+                                list.delete();
+                                break;
+                            case "g":
+                                System.out.print("Insert line number to go:");
+                                Scanner linNum = new Scanner(System.in);
+                                list.goLine(linNum.nextInt());
+                                break;
+                            case "?":
+                                commandMenu();
+                                break;
+                            case "m":
+                                System.out.print("Please insert forwardline:");
+                                Scanner forwaredLine = new Scanner(System.in);
+                                list.moveForward(forwaredLine.nextInt());
+                                break;
+                            case "i":
+                                System.out.print("Please enter the data:");
+                                Scanner addBeforeCurrentData = new Scanner(System.in);
+                                list.addBeforeCurrent(addBeforeCurrentData.nextLine());
+                                break;
+                            case "p":
+                                list.displayCurrent();
+                                break;
+                            case "P":
+                                list.displayList();
+                                break;
+                            case "s":
+                                Scanner Data = new Scanner(System.in);
+                                System.out.print("Please enter the current data:");
+                                String oldData = Data.nextLine();
+                                System.out.print("Please enter the new data:");
+                                String newData = Data.nextLine();
+                                list.replaceText(oldData, newData);
+                                break;
+                            case "w":
+                                System.out.print("Please enter the fileName:");
+                                Scanner fileName = new Scanner(System.in);
+                                writeInFile(list, fileName.nextLine());
+                                break;
+                            case "r!":
+                                System.exit(0);
+                                break;
+                            case "#":
+                                list.goBottom();
+                                break;
+                            case "+":
+                                list.goUp();
+                                break;
+                            case "-":
+                                list.goDown();
+                                break;
+                            case "?text":
+                                System.out.print("Please enter searching text=");
+                                Scanner text = new Scanner(System.in);
+                                Link f = list.find(text.nextLine());
+                                if (f != null) {
+                                    JOptionPane.showMessageDialog(null, "You found it");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "You can't find it");
+                                }
+                                break;
+                        }
+
+                        break;
+                }
+
+
+                menu();
             }
-             
-            
-             menu();
-            }
-           
-            
+
+
         }
 
 
     }
 
-    public static void writeInFile(LinkList list,String name) {
+    public static void writeInFile(LinkList list, String name) {
         try {
-            File file = new File(name+".txt");
+            File file = new File(name + ".txt");
             FileWriter fwriter = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fwriter);
             Link temp = list.first;
