@@ -46,7 +46,10 @@ public class MainLinkList {
                         commandMenu();
                         System.out.print("Enter your choice=");
                         komut = command.nextLine();
+<<<<<<< HEAD
                         System.out.println("");
+=======
+>>>>>>> ec2432d16359cc22536980fb2dbcefe9800b67f4
                         switch (komut) {
                             case "l":
                                 System.out.println("Going to the top");
@@ -123,9 +126,15 @@ public class MainLinkList {
                         }
 
                         break;
+<<<<<<< HEAD
                   
                 }
                 System.out.println("");
+=======
+                }
+
+
+>>>>>>> ec2432d16359cc22536980fb2dbcefe9800b67f4
                 menu();
             }
 
@@ -148,9 +157,14 @@ public class MainLinkList {
             }
             bw.close();
         } catch (Exception hata) {
+<<<<<<< HEAD
             JOptionPane.showMessageDialog(null, "There is error while writing to file");
               }
         JOptionPane.showMessageDialog(null, "Writing to file completed successfully");
+=======
+            System.out.println("There is error while writing to file");
+        }
+>>>>>>> ec2432d16359cc22536980fb2dbcefe9800b67f4
     }
 
     public static void readFromFile(File file) {
